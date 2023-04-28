@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text("asunto");
             $table->dateTime("fecha_agenda");
-            $table->foreignId('animals_id')->constrained()->nullable();
+            $table->foreignId('animal_id')->constrained()->nullable();
             $table->foreignId('medico_id')->constrained()->nullable();
             $table->foreignId('servicio_id')->constrained()->nullable();
             $table->timestamps();

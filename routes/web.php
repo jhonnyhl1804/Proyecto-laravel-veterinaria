@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\PruebaController;
+use App\Http\Controllers\citas\citaController;
+//use App\Http\Controllers\PruebaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('cita', citaController::class);
