@@ -40,18 +40,19 @@ class citaController extends Controller
     public function store(StoreRequest $request)
     {
         //echo (request("fecha_agenda"));
-        //dd($request->all());
+        dd($request->all());
         //echo "Este es el Store" ;
-
+    
         cita::create($request->all());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($cita)
+    public function show($id)
     {
-        //
+        $cita = cita::findOrfail($id);
+        return view($cita);
     }
 
     /**

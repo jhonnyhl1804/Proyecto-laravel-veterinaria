@@ -16,7 +16,7 @@
                     <h3>Asunto</h1>
                 </td>
                 <td>
-                    <textarea name="asunto" placeholder="Detalles..." required></textarea>
+                    <textarea name="asunto" placeholder="Detalles..."></textarea>
                 </td>    
             </tr> 
             
@@ -25,7 +25,7 @@
                     <h3>Agendar cita</h1>
                 </td>
                 <td>
-                    <input type="datetime-local" name="fecha_agenda" required>
+                    <input type="datetime-local" name="fecha_agenda" >
                 </td>    
             </tr>
             <tr>
@@ -34,23 +34,15 @@
                 </td>
                 <td>
                     <!-- Realizamos un array que verifique el cliente con el mismo id en la llave foreanea del cliente en el animal-->
-                    @foreach ($clientes as $c)
-
-                    <select name="animal_id" required>
+                    <select name="animal_id">
                         <option value="">Selecciona el animal/Cliente</option>
                         @foreach ($animals as $a)
                             <option value="{{ $a->id}}">
-                                {{ $a->nombres }} // 
-                            @if ($a->clientes_id == $c->id)
-                                {{$c->nombres}}
-                            @endif
+                                {{ $a->nombres }} // {{$a->clientes_id}}
                             </option>
                         @endforeach
                     </select>         
-
                     <p>¿No existe en la base de datos? <a href="">Registralo</a></p>        
-                    @endforeach
-
                 </td>    
             </tr>
             <tr>
@@ -58,7 +50,7 @@
                     <h3>Médico</h1>
                 </td>
                 <td>
-                    <select name="medico_id" required>
+                    <select name="medico_id">
                         <option value="">Selecciona el médico</option>
                         @foreach ($medicos as  $nombre => $id)
                             <option value="{{ $id}}">{{ $nombre }}</option>
